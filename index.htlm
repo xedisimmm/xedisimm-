@@ -1,64 +1,159 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Xədisim 💙</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Xədisim ❤️</title>
+
 <style>
-html,body{margin:0;height:100%;overflow:hidden}
-body{
-  display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(circle at center,#123b86 0,#06132f 42%,#020817 100%);
-  font-family:Arial,sans-serif;color:white;
+* {
+    box-sizing: border-box;
 }
-.card{
-  width:88%;max-width:430px;padding:48px 20px;text-align:center;
-  border-radius:30px;background:rgba(10,35,85,.55);
-  border:1px solid rgba(120,190,255,.35);
-  box-shadow:0 0 45px rgba(30,130,255,.35);
-  backdrop-filter:blur(8px);z-index:2;
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffb6c1);
 }
-.rose{font-size:58px;margin-bottom:12px}
-h1{
-  margin:0;font-size:38px;line-height:1.15;
-  text-shadow:0 0 14px #55aaff,0 0 30px #1478ff;
+
+.card {
+    width: 88%;
+    max-width: 420px;
+    padding: 35px 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 28px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
-p{font-size:19px;margin:18px 0 0;opacity:.95}
-.heart{
-  position:absolute;bottom:-40px;font-size:25px;
-  animation:up linear infinite;opacity:.85
+
+h1 {
+    color: white;
+    font-size: 34px;
+    margin-bottom: 15px;
 }
-@keyframes up{
-  0%{transform:translateY(0) scale(.8);opacity:0}
-  15%{opacity:.9}
-  100%{transform:translateY(-115vh) scale(1.2) rotate(25deg);opacity:0}
+
+p {
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
 }
-.spark{position:absolute;width:4px;height:4px;border-radius:50%;
-background:#9bd7ff;box-shadow:0 0 12px #4da9ff;animation:twinkle 2s infinite alternate}
-@keyframes twinkle{to{opacity:.2;transform:scale(.4)}}
+
+.heart {
+    font-size: 65px;
+    animation: beat 1s infinite;
+}
+
+button {
+    margin-top: 15px;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #ff4f81;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#message {
+    display: none;
+    margin-top: 20px;
+}
+
+.floating {
+    position: fixed;
+    bottom: -50px;
+    font-size: 25px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes beat {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
 </style>
 </head>
+
 <body>
+
 <div class="card">
-  <div class="rose">💙🌹💙</div>
-  <h1>Səni sevirəm,<br>Xədisim 💙</h1>
-  <p>Sən mənim üçün çox özəlsən ✨</p>
+
+    <div class="heart">❤️</div>
+
+    <h1>Xədisim ❤️</h1>
+
+    <p>
+        Sən mənim üçün çox özəl birisən.
+        Hər şeyinlə özünəməxsussan və
+        üzünü güldürmək mənim üçün çox xoşdur. 🫶🏻
+    </p>
+
+    <button onclick="showMessage()">Bura bas ❤️</button>
+
+    <div id="message">
+        <p>
+            Sadəcə bunu bil:
+            <br><br>
+            <b>Sən mənim üçün çox dəyərlisən. ❤️</b>
+            <br><br>
+            Yaxşı ki, varsan, Xədisim. 🌹
+        </p>
+    </div>
+
 </div>
+
 <script>
-const hs=["💙","💙","♡","💙","🌹","💙","💕"];
-for(let i=0;i<30;i++){
- let e=document.createElement("div"); e.className="heart";
- e.textContent=hs[Math.floor(Math.random()*hs.length)];
- e.style.left=Math.random()*100+"vw";
- e.style.animationDuration=(5+Math.random()*6)+"s";
- e.style.animationDelay=(-Math.random()*8)+"s";
- document.body.appendChild(e);
+
+function showMessage() {
+    document.getElementById("message").style.display = "block";
 }
-for(let i=0;i<35;i++){
- let s=document.createElement("div");s.className="spark";
- s.style.left=Math.random()*100+"vw";s.style.top=Math.random()*100+"vh";
- s.style.animationDelay=Math.random()*2+"s";document.body.appendChild(s);
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating";
+
+    const emojis = ["❤️", "💗", "💕", "💖", "🌹"];
+
+    heart.innerHTML =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
 }
+
+setInterval(createHeart, 500);
+
 </script>
+
 </body>
 </html>
