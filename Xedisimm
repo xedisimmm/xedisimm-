@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>❤️</title>
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #000;
+}
+.heart {
+  position: absolute;
+  bottom: -30px;
+  color: #ff1744;
+  font-size: 30px;
+  animation: up 5s linear forwards;
+}
+@keyframes up {
+  to {
+    transform: translateY(-110vh) rotate(20deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<script>
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = (20 + Math.random() * 35) + "px";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 5000);
+}, 250);
+</script>
+
+</body>
+</html>
