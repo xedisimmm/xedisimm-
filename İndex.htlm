@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Xədisim ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffb6c1);
+}
+
+.card {
+    width: 88%;
+    max-width: 420px;
+    padding: 35px 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 28px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: white;
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+p {
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.heart {
+    font-size: 65px;
+    animation: beat 1s infinite;
+}
+
+button {
+    margin-top: 15px;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #ff4f81;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#message {
+    display: none;
+    margin-top: 20px;
+}
+
+.floating {
+    position: fixed;
+    bottom: -50px;
+    font-size: 25px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes beat {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>Xədisim ❤️</h1>
+
+    <p>
+        Sən mənim üçün çox özəl birisən.
+        Hər şeyinlə özünəməxsussan və
+        üzünü güldürmək mənim üçün çox xoşdur. 🫶🏻
+    </p>
+
+    <button onclick="showMessage()">Bura bas ❤️</button>
+
+    <div id="message">
+        <p>
+            Sadəcə bunu bil:
+            <br><br>
+            <b>Sən mənim üçün çox dəyərlisən. ❤️</b>
+            <br><br>
+            Yaxşı ki, varsan, Xədisim. 🌹
+        </p>
+    </div>
+
+</div>
+
+<script>
+
+function showMessage() {
+    document.getElementById("message").style.display = "block";
+}
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating";
+
+    const emojis = ["❤️", "💗", "💕", "💖", "🌹"];
+
+    heart.innerHTML =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 500);
+
+</script>
+
+</body>
+</html>
